@@ -1,3 +1,4 @@
+//From W3 Schools "The Band" theme; moved to its own file for separation of concerns
 $(document).ready(function(){
     // Initialize Tooltip
     $('[data-toggle="tooltip"]').tooltip(); 
