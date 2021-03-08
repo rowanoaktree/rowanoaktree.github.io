@@ -1,0 +1,32 @@
+﻿siteID,name,lat,long,est,flooding,otherDisturbance,management
+1,Alameda,35.18805064,-106.6469194,1997,no,,"clearing, mulching"
+2,Rio Grande Nature Center,35.12675286,-106.6884322,1997,no,,clearing
+3,Los Lunas,34.81236936,-106.7144581,1997,yes,fire,
+4,Belen,34.6484315,-106.7377022,1998,yes,fire,
+5,Santa Ana,35.34283611,-106.5458472,1999,no,,clearing
+6,Savannah,35.14285294,-106.6819814,2000,no,,mowing
+7,Lemitar,34.16703189,-106.8899486,2002,no,,
+8,Hispanic Cultural Center,35.06881267,-106.6580575,2002,no,,"clearing, jetty jack removal"
+10,Diversion,35.191958,-106.6441893,2002,no,,clearing
+11,Calabacillas,35.19056822,-106.6491626,2003,no,,clearing
+12,Minnow,35.19315094,-106.646915,2002,no,,"mulching, native revegetation"
+13,Harrison,35.01505603,-106.6736953,2003,yes,,side channel and wetland scallops excavated
+14,Sevilleta,34.25834233,-106.8831845,2003,no,,
+15,Valencia Clear,34.64863444,-106.7391728,2003,seep,,"clearing, wood chipping, road construction"
+16,Valencia Forest,34.64716225,-106.738482,2003,no,fire,"clearing, wood chipping"
+17,Montano,35.14528819,-106.6803699,2004,no,fire,"clearing, wood chipping, herbicide, native revegetation, mowing"
+18,Reynolds Clear,34.65966436,-106.7421328,2004,no,,"clearing, native revegetation, mulching"
+19,Reynolds Forest,34.66065483,-106.7429525,2004,yes,,"clearing, mulching"
+20,Route 66,35.10066114,-106.6923499,2004,yes,,clearing
+21,Badger,35.19556856,-106.6416219,2004,no,,mulching
+22,Bobcat,35.19705633,-106.6439494,2004,no,,mulching
+23,BioPark,35.078725,-106.6679472,2007,yes,fire,"clearing, mulching, asphalt and cement removal"
+24,Santo Domingo,35.50989167,-106.3896111,2008,no,,clearing
+25,Crawford,34.64049722,-106.7420472,2008,yes,fire,"clearing, bank terracing"
+26,Mesilla,32.24832778,-106.8210139,2011,no,,clearing
+27,Bosque Farms,34.84885,-106.7147222,2012,yes,,clearing
+28,Valle de Oro,34.978951,-106.680137,2014,no,,
+29,Albuquerque Overbank Project / Umbreit,35.047531,-106.664012,2014,yes,,"Bank lowering, clearing, side channel excavation"
+30,State Land Office,34.967198,-106.685649,2014,seep,,"clearing, channel excavation, native revegetation"
+31,San Jose,35.01217,-106.67384,2015,yes,,"wetland scallop excavation, native revegatation, bank terracing"
+32,Sandia,35.255,-106.5907,2016,no,fire,"bank terracing, clearing, native revegetation"
