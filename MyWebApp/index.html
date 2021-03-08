@@ -131,7 +131,8 @@
                 <p style="text-align:left"> <i>Drag the overview line chart at the bottom to view more detailed monthly
                         data
                         in the top
-                        multi-line chart.</i></p>
+                        multi-line chart.<br>
+                    *Graph will not display if there are no data available for the selected site</i></p>
 
                 <!-- <svg width="960" height="500"></svg> -->
                 <!-- Adds element for dropdown list  -->
@@ -202,6 +203,7 @@
                 {
                     layer.bindPopup(
                         "<b>Site Name:</b> " + feature.properties.site + "<br>" +
+                        "<b>Site ID:</b> " + feature.properties.siteID + "<br>" +
                         "<b>Established:</b> " + feature.properties.est + "<br>" +
                         "<b>Flooding site?</b> " + feature.properties.flooding + "<br>" +
                         "<b>Other Disturbances:</b> " + feature.properties.otherDisturbance + "<br>" +
@@ -427,11 +429,17 @@
 
                 // define the update Graph function
                 function updateGraph(newData) {
-                    console.log(data);
+
+                    // console.log(data);
 
                     console.log(newData);
 
-                    console.log(data);
+                    // console.log(data);
+
+                    //Dr. Yang edited code to remove previous drawn graph using previously selected siteID start here
+                    d3.selectAll("g > *").remove();
+                    //Dr. Yang edited code to remove previous drawn graph using previously selected siteID
+
 
                     //Set Domains of Graphs 
 

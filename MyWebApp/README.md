@@ -2,6 +2,13 @@
 585L Final Project: Blair Mirka and Rowan Converse (BEMP Groundwater and River Stage 1997 - 2017)
 
 # Dr. Yang comments and suggestions:
+* 3/8/2021 Dr. Yang suggestions to improve your final project web app
+   * Since we have successfuly linked the map and update graph with dropdown menu selected site ID, now please focus on making your map web more usable based on my suggestions below
+     * you will notice, when user selects siteID 32, the graph is empty, that is because if you go to your csv data, the site 32 ineed no data for all years. So I would suggest you add a similar guide text abaove the graph, but below "Drag the overview line chart at the bottom to view more detailed monthly data in the top multi-line chart." (Note that if the graph is empty indicates there are no data for the selected site.)
+     * add *tooltip* to your graph, that is, if user hover over the blue and red lines, it will show the number for that point on the hovered over line.
+     * Add "Site ID" as the second line in your popup, below the "Site Name"
+     * be sure to download all required libraries,css etc to your local copy files, so you web app will always be functional.
+
 * 3/2/2021 Dr. Yang suggestions bugs related to Blair's graph 
   * The error does not relate to whether yourchange the column name, it is because there are a lot of null values in your dataset, the follwoing posts might help for how to handle the null vaules
      * How do I get d3 to treat missing values as null instead of zero? https://stackoverflow.com/questions/26387359/how-do-i-get-d3-to-treat-missing-values-as-null-instead-of-zero
