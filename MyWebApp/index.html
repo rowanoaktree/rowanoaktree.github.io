@@ -47,7 +47,7 @@
             <div class="col-xs-3">
                 <!-- Trigger/Open The Modal -->
                 <button class="btn btn-default pull-right" id="myBtn">Learn More...</button>
-                <!-- The Modal -->
+                <!--Modal element-->
                 <div id="myModal" class="modal">
                     <!-- Modal content -->
                     <div class="modal-content">
@@ -137,8 +137,6 @@
                         in the top
                         multi-line chart.<br>
                     *Graph will not display if there are no data available for the selected site</i></p>
-
-                <!-- <svg width="960" height="500"></svg> -->
                 <!-- Adds element for dropdown list  -->
                 <div id="siteIDDropDown"></div>
                 <svg width="700" height="500"></svg>
@@ -153,9 +151,6 @@
             var siteID_current_dropdown_selected = "Avg";
             console.log(siteID_current_dropdown_selected);
             console.log(typeof (siteID_current_dropdown_selected));
-
-
-            // window.onload = function () { //Dr. Yang added to declare global variable.
 
             //THE MODAL
 
@@ -217,10 +212,6 @@
 
             map.fitBounds(bempSites.getBounds());
 
-            ////////////////////////////////////////////////////////////////////////////////////////////
-            //creating the selector control//
-            ////////////////////////////////////////////////////////////////////////////////////////////
-
             //create Leaflet control for selector
             var selector = L.control({
                 position: 'topright'
@@ -254,15 +245,11 @@
             //populate site_select element with site IDs for all markers in bempSites
             populateSelect(bempSites, "siteID", "site_select");
 
-            ////////////////////////////////////////////////////////////////////////////////////////////
-            //setting up event listeners//
-            ////////////////////////////////////////////////////////////////////////////////////////////
-
+            //set up event listeners
             var site_select = L.DomUtil.get("site_select");
 
             console.log(site_select);
             console.log(typeof (site_select));
-
 
             L.DomEvent.addListener(site_select, 'change', changeHandler);
 
@@ -272,10 +259,8 @@
                 L.DomEvent.stopPropagation(e);
             });
 
-
             // Create a global variable from inside the function:
             // https://www.webdeveloper.com/d/64029-global-variables-not-getting-recognized-on-page-onload/3
-
 
             function changeHandler(e) {
                 //open popups if the selected option has a numerical value
@@ -286,7 +271,7 @@
                         map.setView(bempSites._layers[e.target.value].getLatLng(), 16);
                 }
 
-                //Dr. Yang edited code to get the siteID from user dropdown click from the map component
+                //Get the siteID from user dropdown click from the map component
                 // e.target.value is the dropdown option index
                 console.log(e.target.value);
                 // get the selected dropdown list correpsponding point latlong
@@ -297,10 +282,8 @@
                 var e = document.getElementById("site_select");
                 var str_user_selected_dropdownItem_text = e.options[e.selectedIndex].text;
                 console.log(str_user_selected_dropdownItem_text);
-                //Dr. Yang edited code to get the siteID from user dropdown click from the map component
 
-                //updated the global variable to the the curently selected siteID
-                // window.siteID_current_dropdown_selected = str_user_selected_dropdownItem_text;
+                //update the global variable to the the curently selected siteID
                 siteID_current_dropdown_selected = str_user_selected_dropdownItem_text;
 
                 console.log(siteID_current_dropdown_selected);
@@ -310,14 +293,14 @@
             //Click event zooms to a site
             bempSites.on('click', function (e) {
                 map.setView(e.latlng, 16);
-                // console.log(e.latlng);
             });
 
+            //Add layer control
             var baseMaps = {
                 "Open Street Map": osm,
                 "USGS Satellite": USGS_USImagery
             };
-            //Add layer control
+            
             L.control.layers(baseMaps).addTo(map);
 
             //THE GRAPH
@@ -405,12 +388,9 @@
             d3.csv("data/BEMP_Station_Data.csv", type, function (error, data) {
                 if (error) throw error;
 
-                // var newData = data;
-
                 var newData = data.filter(filterCriteria);
 
                 function filterCriteria(d) {
-                    // return d.siteID === "3";
                     //use the global variable to filter the data for the selected site to update the graph
                     return d.siteID === siteID_current_dropdown_selected;
                     console.log(siteID_current_dropdown_selected);
@@ -440,10 +420,8 @@
 
                     // console.log(data);
 
-                    //Dr. Yang edited code to remove previous drawn graph using previously selected siteID start here
+                    //Remove previous drawn graph using previously selected siteID
                     d3.selectAll("g > *").remove();
-                    //Dr. Yang edited code to remove previous drawn graph using previously selected siteID
-
 
                     //Set Domains of Graphs 
 
@@ -509,12 +487,6 @@
                         .attr("height", height)
                         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
                         .call(zoom);
-
-                    // console.log(data);
-
-                    // // remove old line chart after draw new chart based on newData
-                    // // remove existing lines
-                    // this.svg.selectAll('lines').remove();
                 };
             });
 
@@ -549,7 +521,6 @@
                 return d;
             }
 
-            // }; //Dr. Yang added to declare global variable. end of window.onload = function () { 
         </script>
 </body>
 
