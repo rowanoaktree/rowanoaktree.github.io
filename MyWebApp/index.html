@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="JS_CSS_downloaded_libraries/Bootstrap.css">
     <link rel="stylesheet" href="JS_CSS_downloaded_libraries/leaflet.css">
     <link rel="stylesheet" href="myCSS_styleFiles/mapStyles.css">
-    <link rel="stylesheet" href="myCSS_styleFiles/styles.css">
-    <link href="JS_CSS_downloaded_libraries/GoogleFonts.js" rel="stylesheet" type="text/css">
-    <link href="JS_CSS_downloaded_libraries/GoogleFonts2.css" rel="stylesheet" type="text/css">
+    <link href="MyCSS_styleFiles/styles.css" rel="stylesheet" />
+    <link href="JS_CSS_downloaded_libraries/GoogleFonts.js" rel="stylesheet" type="text/css" />
+    <link href="JS_CSS_downloaded_libraries/GoogleFonts2.css" rel="stylesheet" type="text/css" />
 
     <!-- Scripts -->
     <script src="JS_CSS_downloaded_libraries/leaflet.js"></script>
@@ -47,7 +47,7 @@
             <div class="col-xs-3">
                 <!-- Trigger/Open The Modal -->
                 <button class="btn btn-default pull-right" id="myBtn">Learn More...</button>
-                <!--Modal element-->
+                <!-- The Modal -->
                 <div id="myModal" class="modal">
                     <!-- Modal content -->
                     <div class="modal-content">
@@ -63,27 +63,27 @@
                             important driver of ecosystem functions in the southwest, such as floral and faunal
                             community composition.
                             <br>
-                            This map is intended to serve as a resource for students, educators, and natural resource
+                            This data explorer is intended to serve as a resource for students, educators, and natural resource
                             managers interested in looking at both a landscape overview and a site-level view of
                             groundwater and river flow dynamics at BEMP sites. Depth to groudwater data were collected
                             from wells at BEMP's research sites monthly, and USGS river flow data were derived for each
                             site from the closest-proximity gauging station. We have defaulted the map to display
                             thirty-two BEMP sites with quality-controlled data between 1997 - 2017, and a line chart
-                            averaging groundwater and river flow across sites. The user can select individual sites from
-                            a dropdown list on the map or click on the marker for any site, and the chart will
+                            averaging groundwater and river flow across sites across the same period. The user can select individual sites from
+                            a dropdown list on the map and the chart will
                             automatically update with the individual site's data.
                             <br>
                             <br>
                             <strong>About the Team: </strong>
                             <br>
                             Project Supervisor: <a href="https://lipingyang.org/index.html" target="_blank">Dr. Liping
-                                Yang</a> (Course Instructor for Geog 485L/585L Internet Mapping)
+                                Yang</a> (Course Instructor for UNM GEOG 485L/585L Internet Mapping)
                             <br>
-                            Team Member (Map): <a href="https://rowanoaktree.github.io/" target="_blank">Rowan
+                            Team Member: <a href="https://rowanoaktree.github.io/" target="_blank">Rowan
                                 Converse</a> (rowan.converse@gmail.com)
                             <br>
-                            Team Member (Graph): <a href="https://mirkab.github.io/" target="_blank">Blair Mirka</a>
-                            (blair.a.mirka@gmail.com)
+                            Team Member: <a href="https://mirkab.github.io/" target="_blank">Blair Mirka</a>
+                            (mirkab@gmail.com)
                             <br>
                             <br>
                             <strong>Acknowledgements:</strong>
@@ -96,12 +96,10 @@
                             <a href="https://bl.ocks.org/d3noob/e34791a32a54e015f57d" target="_blank">D3 Line Graph with
                                 Dual Y Axes</a>
                             <br>
-                            <a href="https://bl.ocks.org/dianaow/0da76b59a7dffe24abcfa55d5b9e163e" target="_blank">D3 Tooltip for Multiline Graph</a>
+                            <a href="https://bl.ocks.org/dianaow/0da76b59a7dffe24abcfa55d5b9e163e" target="_blank">D3 Multiline Graph Hover Tooltip</a>
                             <br>
                             <a href="http://jsfiddle.net/nathansnider/avn0ph1p/" target="_blank">JS GeoJSON Marker with
                                 Dropdown Control</a>
-                                <br>
-                                <a href="https://www.w3schools.com/howto/howto_css_modals.asp" target="_blank">Modal</a>
                         </p>
                     </div>
                 </div>
@@ -121,7 +119,7 @@
             <!-- <div class="col-xs-6"> -->
             <div class="col-xs-5">
                 <h4>Site Map</h4>
-                <p style="text-align:left"><i>Use the dropdown list or click a marker to zoom to a site on the map. <br>
+                <p style="text-align:left"><i>Use the dropdown list to see more information about a site and zoom to it on the map. <br>
                         The
                         graph will then update with the site's data.</i></p>
                 <div id="map"></div>
@@ -132,13 +130,13 @@
                 <p style="text-align:left"> <i><span style="color:red">Red</span> line: USGS River Flow, cubic feet per
                         second (cfs); <span style="color:steelblue">Blue</span> line: BEMP Depth to Groundwater (cm)</i>
                 </p>
-                <p style="text-align:left"> <i>Drag the overview line chart at the bottom to view more detailed monthly
+                <p style="text-align:left"> <i>Drag the horizontal grey bar in the overview line chart underneath this graph to view more detailed monthly
                         data
                         in the top
-                        multi-line chart.<br>
-                    *Graph will not display if there are no data available for the selected site</i></p>
+                        multi-line chart.<br> Sites with no groundwater data result in a blank chart; missing values result in broken lines.</i></p>
+
+                <!-- <svg width="960" height="500"></svg> -->
                 <!-- Adds element for dropdown list  -->
-                <div id="siteIDDropDown"></div>
                 <svg width="700" height="500"></svg>
 
             </div>
@@ -202,7 +200,6 @@
                 {
                     layer.bindPopup(
                         "<b>Site Name:</b> " + feature.properties.site + "<br>" +
-                        "<b>Site ID:</b> " + feature.properties.siteID + "<br>" +
                         "<b>Established:</b> " + feature.properties.est + "<br>" +
                         "<b>Flooding site?</b> " + feature.properties.flooding + "<br>" +
                         "<b>Other Disturbances:</b> " + feature.properties.otherDisturbance + "<br>" +
@@ -245,11 +242,13 @@
             //populate site_select element with site IDs for all markers in bempSites
             populateSelect(bempSites, "siteID", "site_select");
 
-            //set up event listeners
+            //setting up event listeners//
+
             var site_select = L.DomUtil.get("site_select");
 
             console.log(site_select);
             console.log(typeof (site_select));
+
 
             L.DomEvent.addListener(site_select, 'change', changeHandler);
 
@@ -259,8 +258,10 @@
                 L.DomEvent.stopPropagation(e);
             });
 
+
             // Create a global variable from inside the function:
             // https://www.webdeveloper.com/d/64029-global-variables-not-getting-recognized-on-page-onload/3
+
 
             function changeHandler(e) {
                 //open popups if the selected option has a numerical value
@@ -283,7 +284,8 @@
                 var str_user_selected_dropdownItem_text = e.options[e.selectedIndex].text;
                 console.log(str_user_selected_dropdownItem_text);
 
-                //update the global variable to the the curently selected siteID
+                //updated the global variable to the the curently selected siteID
+                // window.siteID_current_dropdown_selected = str_user_selected_dropdownItem_text;
                 siteID_current_dropdown_selected = str_user_selected_dropdownItem_text;
 
                 console.log(siteID_current_dropdown_selected);
@@ -293,14 +295,14 @@
             //Click event zooms to a site
             bempSites.on('click', function (e) {
                 map.setView(e.latlng, 16);
+                // console.log(e.latlng);
             });
 
-            //Add layer control
             var baseMaps = {
                 "Open Street Map": osm,
                 "USGS Satellite": USGS_USImagery
             };
-            
+            //Add layer control
             L.control.layers(baseMaps).addTo(map);
 
             //THE GRAPH
@@ -314,8 +316,8 @@
                 height2 = +svg.attr("height") - margin2.top - margin2.bottom;
 
             //Parse Date
-            var parseDate = d3.timeParse("%m/%d/%Y");
-
+            var parseDate = d3.timeParse("%m/%d/%Y"),
+                bisectDate = d3.bisector(function (d) { return d.Date; }).left;
             //Set Scales
             var x = d3.scaleTime().range([0, width]),
                 x2 = d3.scaleTime().range([0, width]),
@@ -362,7 +364,7 @@
                 .x(function (d) { return x(d.Date); })
                 .y(function (d) { return y3(d.Rivercfc); });
 
-            //Clip to graph area
+            //Clip to graph area to prevent lines extending past graph
             var clip = svg.append("defs").append("svg:clipPath")
                 .attr("id", "clip")
                 .append("svg:rect")
@@ -391,6 +393,7 @@
                 var newData = data.filter(filterCriteria);
 
                 function filterCriteria(d) {
+                  
                     //use the global variable to filter the data for the selected site to update the graph
                     return d.siteID === siteID_current_dropdown_selected;
                     console.log(siteID_current_dropdown_selected);
@@ -420,14 +423,16 @@
 
                     // console.log(data);
 
-                    //Remove previous drawn graph using previously selected siteID
+                    //remove previous drawn graph using previously selected siteID start here
                     d3.selectAll("g > *").remove();
+                    //remove previous drawn graph using previously selected siteID
+
 
                     //Set Domains of Graphs 
 
                     x.domain(d3.extent(newData, function (d) { return d.Date; }));
-                    y.domain([0, d3.max(newData, function (d) { return Math.max(d.Rivercfc); })]);
-                    y1.domain([0, d3.max(newData, function (d) { return Math.max(d.AvgDepthtoGroundwater); })]);
+                    y.domain([0, d3.max(newData, function (d) { return Math.max(d.Rivercfc + 200); })]);
+                    y1.domain([0, d3.max(newData, function (d) { return Math.max(d.AvgDepthtoGroundwater + 100); })]);
                     x2.domain(x.domain());
                     y2.domain([0, d3.max(newData, function (d) { return Math.max(d.AvgDepthtoGroundwater); })]);
                     y3.domain([0, d3.max(newData, function (d) { return Math.max(d.Rivercfc); })]);
@@ -448,6 +453,7 @@
                         .attr("transform", "translate( " + width + ", 0 )")
                         .call(d3.axisRight(y1));
 
+
                     context.append("g")
                         .attr("class", "axis axis--x")
                         .attr("transform", "translate(0," + height2 + ")")
@@ -463,6 +469,41 @@
                         .datum(newData)
                         .attr("class", "line3")
                         .attr("d", river);
+
+                    var focusTip = Line_chart.append("g")
+                        .attr("class", "focusTip")
+                        .style("display", "none");
+
+                    focusTip.append("line")
+                        .attr("class", "x-hover-line hover-line")
+                        .attr("y1", 0)
+                        .attr("y2", height);
+
+                    focusTip.append("circle")
+                        .attr("r", 7.5);
+
+                    focusTip.append("text")
+                        .attr("x", 15)
+                        .attr("dy", ".31em");
+
+                    var focusTip2 = Line_chart.append("g")
+                        .attr("class", "focusTip2")
+                        .style("display", "none");
+
+                    focusTip2.append("line")
+                        .attr("class", "x2-hover-line hover-line")
+                        .attr("y1", 0)
+                        .attr("y2", height);
+
+                    focusTip2.append("circle")
+                        .attr("r", 7.5)
+                        .attr('style', 'stroke:Red');
+
+                    focusTip2.append("text")
+                        .attr("x", 15)
+                        .attr('style', 'background-color:gray')
+                        .attr("dy", ".31em");
+
 
                     //add lines to subchart 
                     context.append("path")
@@ -486,7 +527,27 @@
                         .attr("width", width)
                         .attr("height", height)
                         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                        .attr("class", "overlay")
+                        .on("mouseover", function () { focusTip.style("display", null); focusTip2.style("display", null); })
+                        .on("mouseout", function () { focusTip.style("display", "none"); focusTip2.style("display", "none"); })
+                        .on("mousemove", mousemove)
                         .call(zoom);
+
+                    function mousemove() {
+                        var x0 = x.invert(d3.mouse(this)[0]),
+                            i = bisectDate(newData, x0, 1),
+                            d0 = newData[i - 1],
+                            d1 = newData[i],
+                            d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
+                        focusTip.attr("transform", "translate(" + x(d.Date) + "," + y1(d.AvgDepthtoGroundwater) + ")");
+                        focusTip.select("text").text(function () { return d.AvgDepthtoGroundwater; });
+                        focusTip.select(".x-hover-line").attr("y2", height - y1(d.AvgDepthtoGroundwater));
+
+                        focusTip2.attr("transform", "translate(" + x(d.Date) + "," + y(d.Rivercfc) + ")");
+                        focusTip2.select("text").text(function () { return d.Rivercfc; });
+                        focusTip2.select(".x-hover-line").attr("y", height - y(d.Rivercfcs));
+                    }
+
                 };
             });
 
@@ -520,7 +581,6 @@
                 d.Rivercfc = +d.Rivercfc;
                 return d;
             }
-
         </script>
 </body>
 

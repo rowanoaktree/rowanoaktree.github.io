@@ -31,6 +31,25 @@ fill: steelblue;
 fill:Red;
 }
 
+/* Tooltip */
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: white;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+
+.hover-line {
+  stroke: lightgrey;
+  stroke-width: 2px;
+  stroke-dasharray: 3, 3;
+}
+
  /* The Modal (background) */
  .modal {
     display: none; /* Hidden by default */
