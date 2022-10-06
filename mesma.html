@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>Rowan Converse | MESMA</title>
+
+	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
+	
+	<!-- Bootstrap -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<!-- Icon font -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+
+	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
+</head>
+<body>
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="1">
+		<h1 id="logo" class="text-center">
+			<span class="title">Rowan Converse</span>
+			<span class="tagline">Geospatial technologies for wildlife management and conservation<br>
+				<a href="mailto:rowan.converse@gmail.com">rowan.converse@gmail.com</a></span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="about.html">Resume</a></li>
+					<li><a href="links.html">Links</a></li>
+				</ul>
+			
+			</div><!--/.nav-collapse -->			
+		</div>	
+	</nav>
+</header>
+
+<main id="main">
+
+	<div class="container">
+
+		<div class="row topspace">
+			
+			<!-- Article main content -->
+			<article class="col-sm-8 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Assessing drought vegetation dynamics using MESMA</h1>
+				</header>
+               
+				<p><img src="assets/images/mesma.jpg" alt=""></p>
+
+				<h3>Sub-pixel analysis of land cover changes in a heterogenous environment</h3>
+				<p>My master's thesis focused on using multi-endmember spectral mixture analysis, a method of characterizing relative proportions of land cover contained within individual pixels, to assess changes in vegetation communities in central New Mexico over the course of a ten year period. This is desirable because coarse resolution satellite imagery with deep temporal records such as Landsat has pixels that are typically too large to separate individual vegetation communities in heterogenous environments like the ecotone of grassland and shrubland in central New Mexico; using sub-pixel methods, we can still understand relative changes in cover between these communities, which may be important in the era of climate change. In summer 2019, I collected field spectra data of the dominant species at the Sevilleta National Wildlife Refuge over the course of six field sessions using an ASD MultiSpec 4 spectroradiometer. Using the VIPER toolset for ENVI, I curated a spectral library from these field samples and used it to train and assess MESMA models for characterizing relative cover of shrubs, grasses, and bare soil in Landsat imagery of three anniversary dates covering a 10-year period that included a major drought event.</p>
+                <p><strong>Research Questions</strong></p>
+                <ul>
+                    <li>Can MESMA be successfully used to characterize relative cover of vegetation communities in semiarid grass and shrubland?</li>
+                    <li>If so, can this method be used to detect relative changes in cover?</li>
+                </ul>
+				
+				
+			</article>
+			<!-- /Article -->
+
+			<!-- Sidebar -->
+			<aside class="col-md-4 sidebar sidebar-left">
+
+				<div class="widget">
+					<h4>Funder</h4>
+					<img src="assets/images/lter.jpg" style="width:100px;height:100px" alt=""><br>
+					<p><a href="https://sevlter.unm.edu/summer-fellowship-program/">Sevilleta Long-Term Ecological Research (LTER) Graduate Student Summer Fellowship</a></p>
+				</div>
+				<div class="widget">
+					<h4>Links</h4>
+					<ul>
+						<li><a href="https://www.mdpi.com/2072-4292/13/19/3840">MDPI Remote Sensing Article</a></li>
+                        <li><a href="https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-sev&identifier=328">Field Spectra Data in the Sevilleta LTER Repository</a></li>
+						<li><a href="https://aspire.unm.edu/projects/project/30-year-synoptic-record-of-vegetation-dynamics-at-sevilleta-national-wildlife-refuge.html">ASPIRE Project Page</a></li>
+					</ul>
+				</div>
+				<div class="widget">
+					<h4>Key Accomplishments</h4>
+                    <ul>
+					    <li>Received 2nd place in the Remote Sensing Specialty Group Student Honors Paper Competition at the 2021 Annual Meeting of the American Association of Geographers</li>
+					    <li>Published this research in MDPI Remote Sensing</li>
+                        <li>Won a competitive summer fellowship to fund this research</li>
+                    </ul>
+                </div>
+			</aside>			
+			<!-- /Sidebar -->
+			
+		</div>
+	</div>	<!-- /container -->
+	
+</main>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p> </p>
+				</div>
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						Copyright &copy; Rowan Converse<br> 
+						Design: <a href="http://www.gettemplate.com" rel="designer">Initio by GetTemplate</a> </p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="assets/js/template.js"></script>
+</body>
+</html>
