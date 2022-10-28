@@ -169,7 +169,7 @@ h6,
 .h6 {
   font-family: "Open sans", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  color: #333333;
+  color: #000000;
 }
 h1 {
   font-size: 40px;
@@ -252,7 +252,7 @@ a:hover {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.2em;
-  color: #7C7C7C;
+  color: #000000;
   margin: 5px 0 0;
 }
 #head .tagline b {
