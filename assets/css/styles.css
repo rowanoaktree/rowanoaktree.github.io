@@ -359,6 +359,11 @@ img {
 .panel-cta .panel-body {
   padding: 35px;
 }
+.project-row-centered {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
 /* Section - Featured */
 .featured {
   font-size: 13px;
